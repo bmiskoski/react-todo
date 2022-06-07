@@ -1,10 +1,10 @@
-import AddTodoIcon from "./icons/AddTodoIcon";
+import AddTodoIcon from "../icons/AddTodoIcon";
 
 const Header = (props) => {
   return (
     <nav className="flex justify-between align-center py-5">
       <h1 className="text-3xl font-bold leading-none">todo</h1>
-      <button onClick={() => props.setToggleForm(true)}>
+      <button onClick={() => props.setShowForm(true)}>
         <AddTodoIcon />
       </button>
     </nav>
