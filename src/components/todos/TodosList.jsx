@@ -1,13 +1,13 @@
 import { useRef } from "react";
 import DotsIcon from "../icons/DotsIcon";
 
-function TodosList(props) {
+function TodosList({ todos, setTodos }) {
   const nameInput = useRef();
   const bodyInput = useRef();
 
   const handleOptions = (id) => {
-    props.setTodos(
-      [...props.todos].map((todo) => {
+    setTodos(
+      [...todos].map((todo) => {
         if (todo.id === id) {
           todo.isOptionsActive = !todo.isOptionsActive;
         }
@@ -17,12 +17,13 @@ function TodosList(props) {
   };
 
   const deleteTodo = (id) => {
-    props.setTodos([...props.todos].filter((todo) => todo.id !== id));
+    setTodos([...todos].filter((todo) => todo.id !== id));
   };
 
   const markTodoAsCompleted = (id) => {
-    props.setTodos(
-      [...props.todos].map((todo) => {
+    console.log(id);
+    setTodos(
+      [...todos].map((todo) => {
         if (todo.id === id) {
           todo.isDone = !todo.isDone;
         }
@@ -32,8 +33,8 @@ function TodosList(props) {
   };
 
   const editTodo = (id) => {
-    props.setTodos(
-      [...props.todos].map((todo) => {
+    setTodos(
+      [...todos].map((todo) => {
         if (todo.id === id) {
           todo.isEditing = true;
           todo.isOptionsActive = false;
@@ -44,8 +45,8 @@ function TodosList(props) {
   };
 
   const cancelEdit = (id) => {
-    props.setTodos(
-      [...props.todos].map((todo) => {
+    setTodos(
+      [...todos].map((todo) => {
         if (todo.id === id) {
           todo.isEditing = false;
           todo.isOptionsActive = false;
@@ -56,8 +57,8 @@ function TodosList(props) {
   };
 
   const updateTodo = (id) => {
-    props.setTodos(
-      [...props.todos].map((todo) => {
+    setTodos(
+      [...todos].map((todo) => {
         if (todo.id === id) {
           todo.isEditing = false;
           todo.title = nameInput.current.value;
@@ -68,9 +69,9 @@ function TodosList(props) {
     );
   };
 
-  return props.todos.map((todo) => (
+  return todos.map((todo) => (
     <div
-      className={`col-span-1 p-5 rounded-xl shadow-md transition ${
+      className={`col-span-12 sm:col-span-6 lg:col-span-4 p-5 rounded-xl shadow-md transition ${
         todo.isDone ? "bg-green-200" : "bg-yellow-100"
       }`}
       key={todo.id}
@@ -141,6 +142,7 @@ function TodosList(props) {
               className="mr-1 cursor-pointer"
               type="checkbox"
               onChange={() => markTodoAsCompleted(todo.id)}
+              checked={todo.isDone}
             />
             <label>Done</label>
           </form>

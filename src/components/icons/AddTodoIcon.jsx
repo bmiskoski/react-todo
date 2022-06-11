@@ -1,5 +1,3 @@
-import React from "react";
-
 function AddTodoIcon() {
   return (
     <svg
@@ -12,7 +10,7 @@ function AddTodoIcon() {
       <defs>
         <style>{".cls-1{fill:#41416e;}"}</style>
       </defs>
-      <title>{"plus-square"}</title>
+      <title>{"Add new todo"}</title>
       <g id="plus-square-Filled">
         <path
           id="plus-square-Filled-2"
