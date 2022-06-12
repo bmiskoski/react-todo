@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="container px-5 mx-auto">
       <Header setShowForm={setShowForm} todos={todos} setTodos={setTodos} />
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         {todos.length > 0 ? (
           <TodosList todos={todos} setTodos={setTodos} />
         ) : (

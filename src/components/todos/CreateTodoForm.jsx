@@ -37,9 +37,9 @@ function CreateTodoForm({
           id: idForTodos,
           title: event.target.title.value,
           body: event.target.body.value,
-          isDone: false,
           isEditing: false,
           isOptionsActive: false,
+          status: "initial",
         },
       ]);
       setIdForTodos((prevIdForTodos) => prevIdForTodos + 1);
